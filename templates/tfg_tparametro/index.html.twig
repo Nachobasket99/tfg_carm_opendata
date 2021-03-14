@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TfgTparametro index{% endblock %}
+
+{% block body %}
+    <h1>TfgTparametro index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>CodParametro</th>
+                <th>DesParametro</th>
+                <th>ValParametro</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tfg_tparametro in tfg_tparametros %}
+            <tr>
+                <td>{{ tfg_tparametro.id }}</td>
+                <td>{{ tfg_tparametro.codParametro }}</td>
+                <td>{{ tfg_tparametro.desParametro }}</td>
+                <td>{{ tfg_tparametro.valParametro }}</td>
+                <td>
+                    <a href="{{ path('tfg_tparametro_show', {'id': tfg_tparametro.id}) }}">show</a>
+                    <a href="{{ path('tfg_tparametro_edit', {'id': tfg_tparametro.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tfg_tparametro_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TfgTparametro{% endblock %}
+
+{% block body %}
+    <h1>Create new TfgTparametro</h1>
+
+    {{ include('tfg_tparametro/_form.html.twig') }}
+
+    <a href="{{ path('tfg_tparametro_index') }}">back to list</a>
+{% endblock %}
