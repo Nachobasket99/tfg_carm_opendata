@@ -6,11 +6,20 @@
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
-        <link rel = "stylesheet" href = {{style_path}}></link>
+        <link rel = "stylesheet" href = "{{style_path}}">
         {% endblock %}
 
         {% block javascripts %}
-        <script type = "text/javascript" src = "scripts/bootstrap.js" defer></script>
+        <script src="scripts/bootstrap.bundle.min.js" defer></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+        crossorigin="anonymous" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" 
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" 
+        crossorigin="anonymous" defer></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" 
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" 
+        crossorigin="anonymous" defer></script>
         {% endblock %}
     </head>
     <body>
@@ -40,9 +49,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Themes</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="themes?theme=dark">Dark theme</a></li>
-                            <li><a class="dropdown-item" href="themes?theme=wlight">Warm light theme</a></li>
-                            <li><a class="dropdown-item" href="themes?theme=clight">Cold light theme</a></li>
+                            <li><a class="dropdown-item" href="themes/dark/{{app.request.attributes.get('_route')}}">Dark theme</a></li>
+                            <li><a class="dropdown-item" href="themes/wlight/{{app.request.attributes.get('_route')}}">Warm light theme</a></li>
+                            <li><a class="dropdown-item" href="themes/clight/{{app.request.attributes.get('_route')}}">Cold light theme</a></li>
                         </ul>
                     </li>
                 </ul>
